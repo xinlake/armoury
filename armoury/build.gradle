@@ -1,0 +1,58 @@
+plugins {
+    id 'com.android.library'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        minSdkVersion 26
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile "AndroidManifest.xml"
+            java.srcDirs = ["java"]
+            res.srcDirs = ["res"]
+            aidl.srcDirs = ["aidl"]
+            renderscript.srcDirs = ["rs"]
+            jniLibs.srcDirs = ["jniLibs"]
+            assets.srcDirs = ["assets"]
+        }
+    }
+}
+
+dependencies {
+    // androidx-core, androidx-annotation, recyclerView, cardView
+    implementation "com.google.android.material:material:1.2.1"
+    implementation "androidx.constraintlayout:constraintlayout:2.0.4"
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+
+    // CameraX, the core library is included indirectly by camera-camera2
+    implementation "androidx.camera:camera-camera2:1.0.0-beta12"
+    implementation "androidx.camera:camera-lifecycle:1.0.0-beta12"
+    implementation "androidx.camera:camera-view:1.0.0-alpha19"
+    implementation "androidx.camera:camera-extensions:1.0.0-alpha19"
+
+    // vision
+    implementation "com.google.zxing:core:3.4.0"
+    implementation "com.google.mlkit:barcode-scanning:16.0.3"
+
+    implementation "com.github.bumptech.glide:glide:4.11.0"
+    implementation "com.squareup.okhttp3:okhttp:4.9.0"
+    implementation "com.google.code.gson:gson:2.8.6"
+}
