@@ -7,7 +7,7 @@ import android.util.Log;
 import armoury.mobile.PermissionActivity;
 
 public class ActivityMain extends PermissionActivity {
-    private static final String TAG = ActivityMain.class.getSimpleName();
+    private static final String Tag = ActivityMain.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,12 +17,12 @@ public class ActivityMain extends PermissionActivity {
         acquirePermissions(new String[]{Manifest.permission.CAMERA}, new Listener() {
             @Override
             public void onPermissionGranted() {
-                Log.i(TAG, "onPermissionGranted");
+                Log.i(Tag, "onPermissionGranted");
             }
 
             @Override
             public void onPermissionDenied(String[] permissionsDenied) {
-                Log.i(TAG, "onPermissionDenied");
+                Log.i(Tag, "onPermissionDenied");
             }
         });
     }
