@@ -91,6 +91,9 @@ bintray {
     key = properties.getProperty("bintray.key")
 
     publications = ["release"]
+    publish = true
+    override = true
+
     pkg {
         repo = "android-library"
         name = libraryArtifactId
