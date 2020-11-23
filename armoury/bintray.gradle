@@ -6,15 +6,29 @@ properties.load(project.rootProject.file('local.properties').newDataInputStream(
 
 def libraryGroupId = "dev.xinlake"
 def libraryArtifactId = "armoury"
-def libraryVersion = "1.0.0"
 
 task sourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
     classifier = 'sources'
 }
 
+task javadoc(type: Javadoc) {
+    // not so good
+    android.compileSdkVersion = rootProject.ext.compileSdkVersion
+
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    from javadoc.destinationDir
+    classifier = 'javadoc'
+    // options.encoding = 'UTF-8'
+}
+
 artifacts {
     archives sourcesJar
+    archives javadocJar
 }
 
 afterEvaluate {
@@ -24,10 +38,11 @@ afterEvaluate {
             release(MavenPublication) {
                 from components.release
                 artifact sourcesJar
+                artifact javadocJar
 
                 groupId = libraryGroupId
                 artifactId = libraryArtifactId
-                version = libraryVersion
+                version = versionName
             }
         }
     }
@@ -47,13 +62,13 @@ bintray {
         desc = "Android applicaton library"
         licenses = ["Apache-2.0"]
 
-        vcsUrl = "https://github.com/xinlake/armoury.git"
         websiteUrl = "https://github.com/xinlake/armoury"
         issueTrackerUrl = "https://github.com/xinlake/armoury/issues"
+        vcsUrl = "https://github.com/xinlake/armoury.git"
         githubRepo = "xinlake/armoury"
 
         version {
-            name = libraryVersion
+            name = versionName
             released = new Date()
         }
     }
