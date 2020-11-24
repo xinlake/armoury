@@ -42,7 +42,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 
     //implementation project(path: ':armoury')
-    implementation "dev.xinlake:armoury:1.0.0-Alpha3"
+    implementation "dev.xinlake:armoury:1.0.0-alpha5"
 }
 
 repositories {
