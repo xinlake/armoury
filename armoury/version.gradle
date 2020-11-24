@@ -1,15 +1,14 @@
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
 
+def buildMajor = 1 //10bit
+def buildMinor = 0 //6bit
+def buildRevision = 0 //6bit
+
 def buildInfo = updateBuildInfo()
 ext {
-    versionMajor = 1 //10bit
-    versionMinor = 0 //6bit
-    versionRevision = 0 //6bit
-
-    versionCode = (versionMajor << 22) | (versionMinor << 16) | (versionRevision << 10) |
-        (buildInfo.Number & 0x3FF)
-    versionName = "$versionMajor.$versionMinor.$versionRevision-Alpha3"//$buildInfo.Number
+    versionCode = (buildMajor << 22) | (buildMinor << 16) | (buildRevision << 10) | (buildInfo.Number & 0x3FF)
+    versionName = "$buildMajor.$buildMinor.$buildRevision-alpha4" //$buildInfo.Number
 }
 
 // build info ======================================================================================
@@ -23,12 +22,14 @@ BuildInfo updateBuildInfo() {
         // Update data to the current information
         jsonBuildInfo.Number++
         jsonBuildInfo.Time = new Date().format("yyyy-MM-dd")
-        jsonBuildInfo.Host = "${System.getProperty("user.name")}@${InetAddress.localHost.hostName}"
+        jsonBuildInfo.Host = "${InetAddress.localHost.hostName}"
+        jsonBuildInfo.User = "${System.getProperty("user.name")}"
     } else {
         jsonBuildInfo = [
             Number: 0,
             Time  : new Date().format("yyyy-MM-dd"),
-            Host  : "${System.getProperty("user.name")}@${InetAddress.localHost.hostName}"
+            Host  : "${InetAddress.localHost.hostName}",
+            User  : "${System.getProperty("user.name")}"
         ]
     }
 
@@ -40,7 +41,8 @@ BuildInfo updateBuildInfo() {
     return new BuildInfo(
         Number: jsonBuildInfo.Number,
         Time: jsonBuildInfo.Time,
-        Host: jsonBuildInfo.Host
+        Host: jsonBuildInfo.Host,
+        User: jsonBuildInfo.User
     )
 }
 
@@ -48,4 +50,5 @@ class BuildInfo {
     public int Number
     public String Time
     public String Host
+    public String User
 }

@@ -62,10 +62,10 @@ bintray {
         desc = "Android applicaton library"
         licenses = ["Apache-2.0"]
 
-        websiteUrl = "https://github.com/xinlake/armoury"
-        issueTrackerUrl = "https://github.com/xinlake/armoury/issues"
-        vcsUrl = "https://github.com/xinlake/armoury.git"
-        githubRepo = "xinlake/armoury"
+        websiteUrl = 'https://github.com/xinlake/armoury'
+        issueTrackerUrl = 'https://github.com/xinlake/armoury/issues'
+        vcsUrl = 'https://github.com/xinlake/armoury.git'
+        githubRepo = 'xinlake/armoury'
 
         version {
             name = versionName

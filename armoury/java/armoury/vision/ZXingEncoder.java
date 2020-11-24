@@ -5,7 +5,6 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.common.BitMatrix;
@@ -23,7 +22,7 @@ public final class ZXingEncoder {
     private static final int WHITE = 0xFFFFFFFF;
     private static final int BLACK = 0xFF000000;
 
-    public static Bitmap EncodeAsBitmap(@NonNull String contents, @NonNull BarcodeFormat format, int dimension) {
+    public static Bitmap EncodeAsBitmap(@NonNull String contents, int zxingFormat, int dimension) {
         Map<EncodeHintType, Object> hints = null;
         String encoding = guessAppropriateEncoding(contents);
         if (encoding != null) {
@@ -33,7 +32,7 @@ public final class ZXingEncoder {
 
         BitMatrix result;
         try {
-            result = new MultiFormatWriter().encode(contents, format, dimension, dimension, hints);
+            result = new MultiFormatWriter().encode(contents, ZXingFormat.getFormat(zxingFormat), dimension, dimension, hints);
         } catch (Exception exception) {
             // Unsupported format
             // com.google.zxing.WriterException – if contents cannot be encoded legally in a format

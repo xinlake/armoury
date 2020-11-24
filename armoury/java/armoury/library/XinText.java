@@ -45,8 +45,6 @@ public class XinText {
         return ipAddress;
     }
 
-    // times ---------------------------------------------------------------------------------------
-
     /**
      * @param pattern such as "yyyy-MM-dd HH:mm:ss"
      * @return the string of current time
