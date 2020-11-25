@@ -44,8 +44,3 @@ dependencies {
     //implementation project(path: ':armoury')
     implementation "dev.xinlake:armoury:1.0.0-alpha5"
 }
-
-repositories {
-    google()
-    jcenter()
-}
