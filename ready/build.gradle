@@ -48,5 +48,4 @@ dependencies {
 repositories {
     google()
     jcenter()
-    maven { url "https://dl.bintray.com/xinlake/android-library" }
 }
