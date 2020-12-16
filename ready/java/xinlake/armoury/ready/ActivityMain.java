@@ -4,8 +4,10 @@ import android.Manifest;
 import android.os.Bundle;
 import android.util.Log;
 
+import java.util.List;
+
 import armoury.mobile.PermissionActivity;
-import armoury.network.IpAddress;
+import armoury.network.WifiInterface;
 
 public class ActivityMain extends PermissionActivity {
     private static final String Tag = ActivityMain.class.getSimpleName();
@@ -32,7 +34,7 @@ public class ActivityMain extends PermissionActivity {
 
         // wifi ip address
         findViewById(R.id.button_get_wifi_address).setOnClickListener(view -> {
-            IpAddress.getWifiAddress();
+            List<WifiInterface> wifiInterfaces = WifiInterface.getIpAddress();
         });
     }
 }
