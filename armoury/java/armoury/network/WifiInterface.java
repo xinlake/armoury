@@ -40,7 +40,8 @@ public class WifiInterface {
                     Enumeration<InetAddress> addressEnumeration = networkInterface.getInetAddresses();
                     while (addressEnumeration.hasMoreElements()) {
                         InetAddress inetAddress = addressEnumeration.nextElement();
-                        if (inetAddress.isLoopbackAddress()) {
+                        if (inetAddress.isLoopbackAddress() ||
+                            ((inetAddress instanceof Inet6Address) && inetAddress.isLinkLocalAddress())) {
                             continue;
                         }
 
