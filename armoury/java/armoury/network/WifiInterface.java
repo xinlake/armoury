@@ -10,9 +10,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class WifiInterface {
-    public String name;
-    public List<String> ip4List;
-    public List<String> ip6List;
+    public final String name;
+    public final List<String> ip4List;
+    public final List<String> ip6List;
 
     public WifiInterface(String name, List<String> ip4List, List<String> ip6List) {
         this.name = name;

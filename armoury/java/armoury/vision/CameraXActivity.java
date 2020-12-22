@@ -52,7 +52,7 @@ public class CameraXActivity extends PermissionActivity implements LifecycleOwne
     private ExecutorService analyzeExecutor; //Blocking camera operations are performed using this executor
     private ProcessCameraProvider cameraProvider;
 
-    private IBarcodeResult barcodeListener = code -> {
+    private final IBarcodeResult barcodeListener = code -> {
         Intent intent = new Intent() {{
             putExtra("name", TAG);
             putExtra(KEY_RESULT, code);
@@ -61,7 +61,9 @@ public class CameraXActivity extends PermissionActivity implements LifecycleOwne
         finish();
     };
 
-    /** Enabled or disabled a button to switch cameras depending on the available cameras */
+    /**
+     * Enabled or disabled a button to switch cameras depending on the available cameras
+     */
     private void updateCameraSwitchButton() {
         boolean enableSwitch = hasBackCamera() && hasFrontCamera();
         ImageButton buttonSwitchLens = findViewById(R.id.armouryCamera_buttonLens);
@@ -163,7 +165,9 @@ public class CameraXActivity extends PermissionActivity implements LifecycleOwne
         }, ContextCompat.getMainExecutor(this));
     }
 
-    /** Returns true if the device has an available back camera. False otherwise */
+    /**
+     * Returns true if the device has an available back camera. False otherwise
+     */
     private boolean hasBackCamera() {
         try {
             return cameraProvider.hasCamera(CameraSelector.DEFAULT_BACK_CAMERA);
@@ -172,7 +176,9 @@ public class CameraXActivity extends PermissionActivity implements LifecycleOwne
         }
     }
 
-    /** Returns true if the device has an available front camera. False otherwise */
+    /**
+     * Returns true if the device has an available front camera. False otherwise
+     */
     private boolean hasFrontCamera() {
         try {
             return cameraProvider.hasCamera(CameraSelector.DEFAULT_FRONT_CAMERA);

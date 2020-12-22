@@ -36,7 +36,7 @@ public class ImagePickActivity extends PermissionActivity {
     public static final String KEY_TITLE = "title";
     public static final String KEY_PRIMARY_COLOR = "primaryColor";
     public static final String KEY_MAX_SELECT = "maxSelect";
-    /** Uri Parcelable ArrayList Extra */
+    // Uri Parcelable ArrayList Extra
     public static final String KEY_RESULT = "uriList";
 
     private ImagePickRVAdapter mImagePickRVAdapter;
