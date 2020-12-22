@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="divider">#606060</color>
-    <color name="navigationBarColor">#121212</color>
-    <color name="buttonPressed">#009688</color>
-    <color name="cameraBlank">#121212</color>
-    <color name="optionPanel80">#80000000</color>
+    <color name="armouryDivider">#606060</color>
+    <color name="armouryNavigationBarColor">#121212</color>
+    <color name="armouryButtonPressed">#009688</color>
+    <color name="armouryCameraBlank">#121212</color>
+    <color name="armouryOptionPanel80">#80000000</color>
 
-    <style name="XinPage" parent="android:Theme.Material">
+    <style name="ArmouryPage" parent="android:Theme.Material">
         <item name="android:windowTranslucentNavigation">false</item>
-        <item name="android:navigationBarColor">@color/navigationBarColor</item>
+        <item name="android:navigationBarColor">@color/armouryNavigationBarColor</item>
     </style>
 
-    <style name="XinCamera" parent="Theme.MaterialComponents.NoActionBar">
+    <style name="ArmouryCamera" parent="Theme.MaterialComponents.NoActionBar">
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">false</item>
-        <item name="android:navigationBarColor">@color/navigationBarColor</item>
+        <item name="android:navigationBarColor">@color/armouryNavigationBarColor</item>
     </style>
 </resources>

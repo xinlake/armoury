@@ -12,13 +12,13 @@
     <application>
         <activity
             android:name="armoury.mobile.picker.ImagePickActivity"
-            android:theme="@style/XinPage" />
+            android:theme="@style/ArmouryPage" />
 
         <activity
             android:name="armoury.vision.CameraXActivity"
             android:clearTaskOnLaunch="true"
             android:screenOrientation="nosensor"
-            android:theme="@style/XinCamera">
+            android:theme="@style/ArmouryCamera">
 
             <!-- Declare notch support -->
             <meta-data

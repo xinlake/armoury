@@ -48,7 +48,7 @@ public class ImagePickActivity extends PermissionActivity {
     private void setupView() {
         List<ModelImage> imageList = ModelImage.loadLocalDB(getApplicationContext());
 
-        ViewAnimator viewAnimator = findViewById(R.id.imagePick_viewAnimator);
+        ViewAnimator viewAnimator = findViewById(R.id.armouryImagePick_viewAnimator);
         if (imageList.size() > 0) {
             viewAnimator.setDisplayedChild(0);
             mImagePickRVAdapter.setData(imageList);
@@ -59,7 +59,7 @@ public class ImagePickActivity extends PermissionActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.menuImagePick_confirm) {
+        if (item.getItemId() == R.id.armouryMenu_imagePick_confirm) {
             List<ModelImage> imageList = mImagePickRVAdapter.getSelection();
 
             ArrayList<Uri> uriList = new ArrayList<>();
@@ -80,14 +80,14 @@ public class ImagePickActivity extends PermissionActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.image_pick, menu);
+        getMenuInflater().inflate(R.menu.armoury_imagepick, menu);
         return true;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_imagepick);
+        setContentView(R.layout.armoury_activity_imagepick);
 
         // get parameters
         Intent intent = getIntent();
@@ -103,7 +103,7 @@ public class ImagePickActivity extends PermissionActivity {
         }
 
         mImagePickRVAdapter = new ImagePickRVAdapter(this, 3, 0.8f, maxSelect, onImagePick);
-        RecyclerView recyclerView = findViewById(R.id.imagePick_recyclerView);
+        RecyclerView recyclerView = findViewById(R.id.armouryImagePick_recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 3));
         recyclerView.setAdapter(mImagePickRVAdapter);

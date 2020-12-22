@@ -7,16 +7,16 @@
 
     <!-- height are set by code -->
     <ImageView
-        android:id="@+id/itemImage_ImageView"
+        android:id="@+id/armouryItemImage_imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="@null"
         android:scaleType="centerCrop" />
 
     <CheckBox
-        android:id="@+id/itemImage_CheckBox"
+        android:id="@+id/armouryItemImage_checkBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/optionPanel80"
+        android:background="@color/armouryOptionPanel80"
         app:layout_constraintBottom_toBottomOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

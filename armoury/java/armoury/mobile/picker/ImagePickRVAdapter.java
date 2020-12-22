@@ -104,7 +104,7 @@ public class ImagePickRVAdapter extends RecyclerView.Adapter<ImagePickRVAdapter.
         int cellWidth = parent.getWidth() / span;
         int imageHeight = (int) (cellWidth / ratio);
 
-        View itemView = LayoutInflater.from(activity).inflate(R.layout.item_image, parent, false);
+        View itemView = LayoutInflater.from(activity).inflate(R.layout.armoury_item_image, parent, false);
         return new ItemView(itemView, imageHeight);
     }
 
@@ -121,8 +121,8 @@ public class ImagePickRVAdapter extends RecyclerView.Adapter<ImagePickRVAdapter.
             super(itemView);
 
             // Image width is set by layout but height is calculated based on width and ratio
-            checkBox = itemView.findViewById(R.id.itemImage_CheckBox);
-            imageView = itemView.findViewById(R.id.itemImage_ImageView);
+            checkBox = itemView.findViewById(R.id.armouryItemImage_checkBox);
+            imageView = itemView.findViewById(R.id.armouryItemImage_imageView);
             imageView.getLayoutParams().height = imageHeight;
         }
     }

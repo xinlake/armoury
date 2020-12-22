@@ -64,7 +64,7 @@ public class CameraXActivity extends PermissionActivity implements LifecycleOwne
     /** Enabled or disabled a button to switch cameras depending on the available cameras */
     private void updateCameraSwitchButton() {
         boolean enableSwitch = hasBackCamera() && hasFrontCamera();
-        ImageButton buttonSwitchLens = findViewById(R.id.cameraButtonLens);
+        ImageButton buttonSwitchLens = findViewById(R.id.armouryCamera_buttonLens);
         buttonSwitchLens.setEnabled(enableSwitch);
         buttonSwitchLens.setOnClickListener(view -> {
             if (lensFacing == CameraSelector.LENS_FACING_FRONT) {
@@ -122,7 +122,7 @@ public class CameraXActivity extends PermissionActivity implements LifecycleOwne
             imageAnalysis);
 
         // Connect the preview use case to the previewView
-        PreviewView previewView = findViewById(R.id.previewView);
+        PreviewView previewView = findViewById(R.id.armouryCamera_previewView);
         preview.setSurfaceProvider(previewView.getSurfaceProvider());
     }
 
@@ -221,7 +221,7 @@ public class CameraXActivity extends PermissionActivity implements LifecycleOwne
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_camera);
+        setContentView(R.layout.armoury_activity_camera);
 
         // get parameters
         Intent intent = getIntent();
