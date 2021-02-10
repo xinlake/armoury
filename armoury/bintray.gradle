@@ -14,7 +14,7 @@ task sourcesJar(type: Jar) {
 
 task javadoc(type: Javadoc) {
     // not so good
-    android.compileSdkVersion = rootProject.ext.compileSdkVersion
+    android.compileSdkVersion = rootProject.compileSdkVersion
 
     source = android.sourceSets.main.java.srcDirs
     classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
