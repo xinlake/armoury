@@ -6,6 +6,7 @@ import android.util.Log;
 
 import java.util.List;
 
+import armoury.library.Logger;
 import armoury.mobile.PermissionActivity;
 import armoury.network.WifiInterface;
 
@@ -15,6 +16,9 @@ public class ActivityMain extends PermissionActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        armoury.Core.init(getApplicationContext(), "ready.log");
+        Logger.write("hello", null);
+
         setContentView(R.layout.activity_main);
 
         // permission
