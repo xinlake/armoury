@@ -14,7 +14,6 @@ public class Core {
 
     private String logPath;
 
-    // TODO log file path
     public static void init(@NonNull Context appContext, String logPath) {
         core = new Core();
 
