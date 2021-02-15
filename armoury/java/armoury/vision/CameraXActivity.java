@@ -41,6 +41,10 @@ public class CameraXActivity extends PermissionActivity implements LifecycleOwne
     public static final String KEY_ANALYZER = "analyzer";
     public static final String KEY_PREFIX = "prefix";
     public static final String KEY_RESULT = "qrCode";
+
+    public static final int FACING_FONT = CameraSelector.LENS_FACING_FRONT;
+    public static final int FACING_BACK = CameraSelector.LENS_FACING_BACK;
+
     public static final String ANALYZER_ZXING = "zxing";
     public static final String ANALYZER_MLKIT = "mlkit";
 

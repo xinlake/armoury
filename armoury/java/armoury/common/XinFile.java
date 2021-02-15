@@ -1,8 +1,7 @@
-package armoury.library;
+package armoury.common;
 
 import android.content.Context;
 import android.content.res.AssetManager;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -54,8 +53,8 @@ public final class XinFile {
 
             // Return a path to file which may be read in common way.
             return cacheFile.getAbsolutePath();
-        } catch (Exception ignored) {
-            Log.e(Tag + "-cacheAssetFile", "Cache asset file failed");
+        } catch (Exception exception) {
+            exception.printStackTrace();
         }
 
         return null;
@@ -83,8 +82,8 @@ public final class XinFile {
 
             String lines = new String(data, StandardCharsets.UTF_8);
             return lines.split("\n");
-        } catch (Exception ignored) {
-            Log.e(Tag + "-readAssetText", "Load asset text error");
+        } catch (Exception exception) {
+            exception.printStackTrace();
         }
 
         return null;

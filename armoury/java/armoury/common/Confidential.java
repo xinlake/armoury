@@ -1,4 +1,4 @@
-package armoury.library;
+package armoury.common;
 
 import android.util.Base64;
 
@@ -26,7 +26,8 @@ public class Confidential {
         try {
             byte[] bytes = Base64.decode(data.getBytes(), flag);
             return new String(bytes);
-        } catch (Exception ignored) {
+        } catch (Exception exception) {
+            exception.printStackTrace();
         }
 
         return null;
@@ -50,7 +51,8 @@ public class Confidential {
             try {
                 byte[] bytes = Base64.decode(data, flag);
                 return new String(bytes, StandardCharsets.UTF_8);
-            } catch (Exception ignored) {
+            } catch (Exception exception) {
+                exception.printStackTrace();
             }
         }
 

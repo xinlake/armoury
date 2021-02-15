@@ -6,12 +6,16 @@ import com.google.gson.Gson;
 
 import java.util.Objects;
 
-import armoury.library.XinText;
+import armoury.common.XinText;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
+/**
+ * @author XinLake
+ * @version 2020.12
+ */
 public class GeoLocation {
     private final OkHttpClient client = new OkHttpClient();
 
@@ -49,9 +53,11 @@ public class GeoLocation {
             Gson gson = new Gson();
             final ModelIpWhoIs ipWhoIs = gson.fromJson(responseBody, ModelIpWhoIs.class);
             return XinText.connectWords(", ", ipWhoIs.country, ipWhoIs.region, ipWhoIs.city);
-        } catch (Exception ignored) {
-            return null;
+        } catch (Exception exception) {
+            exception.printStackTrace();
         }
+
+        return null;
     }
 
     public String fromWebsiteB(@NonNull String ip) {
@@ -74,8 +80,10 @@ public class GeoLocation {
             Gson gson = new Gson();
             final ModelIpInfo ipInfo = gson.fromJson(responseBody, ModelIpInfo.class);
             return XinText.connectWords(", ", ipInfo.country, ipInfo.region, ipInfo.city);
-        } catch (Exception ignored) {
-            return null;
+        } catch (Exception exception) {
+            exception.printStackTrace();
         }
+
+        return null;
     }
 }

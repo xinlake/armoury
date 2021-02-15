@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-import armoury.library.XinText;
+import armoury.common.XinText;
 
 
 /**
@@ -80,6 +80,7 @@ public class ModelImage {
         return resolutionText;
     }
 
+    @NonNull
     public static List<ModelImage> loadLocalDB(Context appContext) {
         final String[] projection = new String[]{
             MediaStore.Images.Media._ID,

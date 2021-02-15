@@ -1,5 +1,7 @@
 package armoury.network;
 
+import androidx.annotation.NonNull;
+
 import java.net.Inet4Address;
 import java.net.Inet6Address;
 import java.net.InetAddress;
@@ -9,6 +11,11 @@ import java.util.Enumeration;
 import java.util.LinkedList;
 import java.util.List;
 
+
+/**
+ * @author XinLake
+ * @version 2020.12
+ */
 public class WifiInterface {
     public final String name;
     public final List<String> ip4List;
@@ -20,9 +27,7 @@ public class WifiInterface {
         this.ip6List = ip6List;
     }
 
-    /**
-     *
-     */
+    @NonNull
     public static List<WifiInterface> getIpAddress() {
         List<WifiInterface> interfaceList = new LinkedList<>();
 
@@ -58,7 +63,8 @@ public class WifiInterface {
                     }
                 }
             }
-        } catch (Exception ignored) {
+        } catch (Exception exception) {
+            exception.printStackTrace();
         }
 
         return interfaceList;

@@ -1,4 +1,4 @@
-package armoury.library;
+package armoury.common;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -36,13 +36,13 @@ public class XinText {
         b3 = (ip >> 16) & 0x000000ff;
         b4 = (ip >> 24) & 0x000000ff;
 
-        String ipAddress;
         try {
-            ipAddress = String.format(Locale.ENGLISH, "%d.%d.%d.%d", b1, b2, b3, b4);
-        } catch (Exception ignored) {
-            ipAddress = null;
+            return String.format(Locale.ENGLISH, "%d.%d.%d.%d", b1, b2, b3, b4);
+        } catch (Exception exception) {
+            exception.printStackTrace();
         }
-        return ipAddress;
+
+        return null;
     }
 
     /**

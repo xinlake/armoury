@@ -8,7 +8,7 @@ def buildRevision = 0 //6bit
 def buildInfo = updateBuildInfo()
 ext {
     versionCode = (buildMajor << 22) | (buildMinor << 16) | (buildRevision << 10) | (buildInfo.Number & 0x3FF)
-    versionName = "$buildMajor.$buildMinor.$buildRevision-alpha7" //$buildInfo.Number
+    versionName = "$buildMajor.$buildMinor.$buildRevision-alpha7b" //$buildInfo.Number
 }
 
 // build info ======================================================================================

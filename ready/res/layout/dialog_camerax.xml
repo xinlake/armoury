@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:ignore="HardcodedText">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/camerax_prefix"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="Enter prefix" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/camerax_facing"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="10dp"
+        android:text="Use front camera" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/camerax_zxing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="ZXing" />
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/camerax_mlkit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ML Kit" />
+    </RadioGroup>
+</LinearLayout>

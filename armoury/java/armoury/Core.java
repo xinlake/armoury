@@ -1,20 +1,25 @@
 package armoury;
 
 import android.content.Context;
-import android.os.Environment;
 
-import java.io.File;
+import androidx.annotation.NonNull;
 
+/**
+ * Armoury library global config
+ * @author XinLake
+ * @version 2021.02
+ */
 public class Core {
     private static Core core;
 
-    public String logPath;
+    private String logPath;
 
-    public static void init(Context appContext, String logName) {
+    // TODO log file path
+    public static void init(@NonNull Context appContext, String logPath) {
         core = new Core();
 
-        File docDir = appContext.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS);
-        core.logPath = docDir + "/" + logName;
+        //File docDir = appContext.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS);
+        core.logPath = logPath;
     }
 
     public static String getLogPath() {
