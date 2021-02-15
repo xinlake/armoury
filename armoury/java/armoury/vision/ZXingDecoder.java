@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -38,7 +37,7 @@ public final class ZXingDecoder {
             inputStream.close();
             return code;
         } catch (Exception exception) {
-            Log.e(Tag, "DecodeQRCode", exception);
+            exception.printStackTrace();
         }
 
         return null;
@@ -57,7 +56,7 @@ public final class ZXingDecoder {
             inputStream.close();
             return code;
         } catch (Exception exception) {
-            Log.e(Tag, "DecodeQRCode", exception);
+            exception.printStackTrace();
         }
 
         return null;

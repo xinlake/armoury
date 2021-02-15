@@ -20,8 +20,13 @@
         android:id="@+id/main_acquire_permission"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="0dp"
         android:text="acquire permission" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/main_pick_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="pick image" />
 
     <!-- networks -->
     <TextView
@@ -36,14 +41,12 @@
         android:id="@+id/main_get_wifi_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="0dp"
         android:text="get wifi address" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/main_get_geo_location"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="0dp"
         android:text="get geo location" />
 
     <!-- vision -->
@@ -59,6 +62,5 @@
         android:id="@+id/main_scanner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="0dp"
         android:text="open scanner" />
 </LinearLayout>

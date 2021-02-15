@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
@@ -82,7 +81,7 @@ public class CameraXActivity extends PermissionActivity implements LifecycleOwne
             try {
                 bindUseCases();
             } catch (Exception exception) {
-                Log.e(TAG, "bindUseCases error", exception);
+                exception.printStackTrace();
             }
         });
     }
@@ -164,7 +163,7 @@ public class CameraXActivity extends PermissionActivity implements LifecycleOwne
                 // Currently no exceptions thrown. cameraProviderFuture.get() should
                 // not block since the listener is being called, so no need to
                 // handle InterruptedException.
-                Log.e(TAG, "setupCamera error", exception);
+                exception.printStackTrace();
             }
         }, ContextCompat.getMainExecutor(this));
     }

@@ -3,63 +3,40 @@ package xinlake.armoury.ready;
 import android.Manifest;
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import armoury.common.Logger;
 import armoury.mobile.PermissionActivity;
-import armoury.network.WifiInterface;
+import armoury.mobile.picker.ImagePickActivity;
 import armoury.vision.CameraXActivity;
 
 public class ActivityMain extends PermissionActivity {
     private static final String Tag = ActivityMain.class.getSimpleName();
     public static final int ACTION_CAMERAX = 100;
+    public static final int ACTION_PICK_IMAGE = 200;
 
     // permission
     private final View.OnClickListener clickPermission = view -> {
         acquirePermissions(new String[]{Manifest.permission.CAMERA}, new Listener() {
             @Override
             public void onPermissionGranted() {
-                Log.i(Tag, "onPermissionGranted");
+                Toast.makeText(ActivityMain.this,
+                    "onPermissionGranted",
+                    Toast.LENGTH_LONG).show();
             }
 
             @Override
             public void onPermissionDenied(String[] permissionsDenied) {
-                Log.i(Tag, "onPermissionDenied");
+                Toast.makeText(ActivityMain.this,
+                    "onPermissionDenied",
+                    Toast.LENGTH_LONG).show();
             }
         });
-    };
-
-    // wifi ip address
-    private final View.OnClickListener clickWifiAddress = view -> {
-        List<WifiInterface> wifiInterfaces = WifiInterface.getIpAddress();
-        StringBuilder stringBuilder = new StringBuilder();
-        if (wifiInterfaces.size() > 0) {
-            for (WifiInterface wifiInterface : wifiInterfaces) {
-                stringBuilder.append(wifiInterface.name).append("\r\n");
-
-                for (String ip4 : wifiInterface.ip4List) {
-                    stringBuilder.append(ip4).append("\r\n");
-                }
-
-                for (String ip6 : wifiInterface.ip6List) {
-                    stringBuilder.append(ip6).append("\r\n");
-                }
-            }
-        } else {
-            stringBuilder.append("Wifi is not connected");
-        }
-
-        new AlertDialog.Builder(ActivityMain.this)
-            .setTitle("Wifi address")
-            .setMessage(stringBuilder)
-            .setPositiveButton("OK", (dialog, which) -> {
-                dialog.dismiss();
-            })
-            .show();
     };
 
     @Override
@@ -76,6 +53,27 @@ public class ActivityMain extends PermissionActivity {
                     })
                     .show();
             }
+        } else if (requestCode == ACTION_PICK_IMAGE) {
+            if (resultCode == RESULT_OK && data != null) {
+                ArrayList<Uri> uriList = data.getParcelableArrayListExtra(ImagePickActivity.KEY_RESULT);
+
+                StringBuilder stringBuilder = new StringBuilder();
+                if (uriList != null && uriList.size() > 0) {
+                    for (Uri uri : uriList) {
+                        stringBuilder.append(uri.toString()).append("\r\n");
+                    }
+                } else {
+                    stringBuilder.append("Invalid selection");
+                }
+
+                new AlertDialog.Builder(this)
+                    .setTitle("Images")
+                    .setMessage(stringBuilder)
+                    .setPositiveButton("OK", (dialog, which) -> {
+                        dialog.dismiss();
+                    })
+                    .show();
+            }
         }
     }
 
@@ -87,8 +85,9 @@ public class ActivityMain extends PermissionActivity {
 
         setContentView(R.layout.activity_main);
         findViewById(R.id.main_acquire_permission).setOnClickListener(clickPermission);
+        findViewById(R.id.main_pick_image).setOnClickListener(new PickImageRunner(this));
 
-        findViewById(R.id.main_get_wifi_address).setOnClickListener(clickWifiAddress);
+        findViewById(R.id.main_get_wifi_address).setOnClickListener(new WifiRunner(this));
         findViewById(R.id.main_get_geo_location).setOnClickListener(new GeoLocationRunner(this));
 
         findViewById(R.id.main_scanner).setOnClickListener(new CameraXRunner(this));

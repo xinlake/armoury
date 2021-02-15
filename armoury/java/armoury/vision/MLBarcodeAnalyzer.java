@@ -1,7 +1,6 @@
 package armoury.vision;
 
 import android.media.Image;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.camera.core.ImageAnalysis;
@@ -55,7 +54,7 @@ final class MLBarcodeAnalyzer implements ImageAnalysis.Analyzer {
                 })
                 .addOnFailureListener(exception -> {
                     // Task failed with an exception
-                    Log.e(Tag, "analyze", exception);
+                    exception.printStackTrace();
                 })
                 .addOnCompleteListener(task -> {
                     mediaImage.close();

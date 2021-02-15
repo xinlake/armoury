@@ -1,7 +1,5 @@
 package armoury.vision;
 
-import android.util.Log;
-
 import androidx.annotation.NonNull;
 import androidx.camera.core.ImageAnalysis;
 import androidx.camera.core.ImageProxy;
@@ -15,7 +13,10 @@ import com.google.zxing.qrcode.QRCodeReader;
 
 import java.nio.ByteBuffer;
 
-
+/**
+ * @author XinLake
+ * @version 2020.12
+ */
 final class ZXingAnalyzer implements ImageAnalysis.Analyzer {
     private final String Tag = getClass().getSimpleName();
 
@@ -34,7 +35,7 @@ final class ZXingAnalyzer implements ImageAnalysis.Analyzer {
         try {
             buffer.get(imageBytes);
         } catch (Exception exception) {
-            Log.e(Tag, "analyze", exception);
+            exception.printStackTrace();
             return;
         }
 
@@ -52,7 +53,7 @@ final class ZXingAnalyzer implements ImageAnalysis.Analyzer {
             }
         } catch (NotFoundException ignored) {
         } catch (Exception exception) {
-            Log.e(Tag, "analyze", exception);
+            exception.printStackTrace();
         }
 
         image.close();

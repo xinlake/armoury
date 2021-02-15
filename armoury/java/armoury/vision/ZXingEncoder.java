@@ -1,7 +1,6 @@
 package armoury.vision;
 
 import android.graphics.Bitmap;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 
@@ -16,6 +15,8 @@ import java.util.Map;
 /**
  * This class does the work of decoding the user's request and extracting all the data
  * to be encoded in a barcode.
+ * @author XinLake
+ * @version 2020.12
  */
 public final class ZXingEncoder {
     private static final String Tag = ZXingEncoder.class.getSimpleName();
@@ -36,7 +37,7 @@ public final class ZXingEncoder {
         } catch (Exception exception) {
             // Unsupported format
             // com.google.zxing.WriterException – if contents cannot be encoded legally in a format
-            Log.e(Tag, "EncodeAsBitmap", exception);
+            exception.printStackTrace();
             return null;
         }
 
