@@ -25,7 +25,7 @@ public final class ZXingDecoder {
     private static final String Tag = ZXingDecoder.class.getSimpleName();
 
     @Nullable
-    public static String DecodeQRCode(@NonNull Context context, @NonNull Uri uri) {
+    public static String decodeImage(@NonNull Context context, @NonNull Uri uri) {
         // try to decode QR code
         try {
             InputStream inputStream = context.getContentResolver().openInputStream(uri);
@@ -47,7 +47,7 @@ public final class ZXingDecoder {
      * @return The result or null
      */
     public static @Nullable
-    String DecodeQRCode(@NonNull String filePath) {
+    String decodeImage(@NonNull String filePath) {
         // try to decode QR code
         try {
             FileInputStream inputStream = new FileInputStream(filePath);

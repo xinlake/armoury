@@ -24,6 +24,14 @@ public class XinText {
         return stringBuilder.substring(0, stringBuilder.length() - delimiter.length());
     }
 
+    public static String generateIp() {
+        return String.format(Locale.US, "%d.%d.%d.%d",
+            (int) (255 * Math.random()),
+            (int) (255 * Math.random()),
+            (int) (255 * Math.random()),
+            (int) (255 * Math.random()));
+    }
+
     /**
      * format the integer to an ip address string
      * @return return the string or null if error
