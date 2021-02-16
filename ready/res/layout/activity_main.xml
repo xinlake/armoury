@@ -7,12 +7,12 @@
     android:padding="10dp"
     tools:ignore="HardcodedText">
 
-    <!-- common -->
+    <!-- mobile -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="20dp"
-        android:text="common"
+        android:text="mobile"
         android:textAllCaps="true"
         android:textStyle="bold" />
 
@@ -44,10 +44,10 @@
         android:text="get wifi address" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/main_get_geo_location"
+        android:id="@+id/main_find_geo_location"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="get geo location" />
+        android:text="find geo location" />
 
     <!-- vision -->
     <TextView
@@ -63,4 +63,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="open scanner" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/main_zxing_decode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="decode qr image" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/main_zxing_encode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="generate qr image" />
 </LinearLayout>

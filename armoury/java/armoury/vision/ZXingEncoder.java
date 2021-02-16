@@ -23,9 +23,9 @@ public final class ZXingEncoder {
     private static final int WHITE = 0xFFFFFFFF;
     private static final int BLACK = 0xFF000000;
 
-    public static Bitmap EncodeAsBitmap(@NonNull String contents, int zxingFormat, int dimension) {
+    public static Bitmap encodeText(@NonNull String content, int zxingFormat, int dimension) {
         Map<EncodeHintType, Object> hints = null;
-        String encoding = guessAppropriateEncoding(contents);
+        String encoding = guessAppropriateEncoding(content);
         if (encoding != null) {
             hints = new EnumMap<>(EncodeHintType.class);
             hints.put(EncodeHintType.CHARACTER_SET, encoding);
@@ -33,7 +33,7 @@ public final class ZXingEncoder {
 
         BitMatrix result;
         try {
-            result = new MultiFormatWriter().encode(contents, ZXingFormat.getFormat(zxingFormat), dimension, dimension, hints);
+            result = new MultiFormatWriter().encode(content, ZXingFormat.getFormat(zxingFormat), dimension, dimension, hints);
         } catch (Exception exception) {
             // Unsupported format
             // com.google.zxing.WriterException – if contents cannot be encoded legally in a format

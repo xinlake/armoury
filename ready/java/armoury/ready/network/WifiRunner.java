@@ -1,4 +1,4 @@
-package xinlake.armoury.ready;
+package armoury.ready.network;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -38,9 +38,7 @@ public class WifiRunner implements View.OnClickListener {
         new AlertDialog.Builder(activity)
             .setTitle("Wifi address")
             .setMessage(stringBuilder)
-            .setPositiveButton("OK", (dialog, which) -> {
-                dialog.dismiss();
-            })
+            .setPositiveButton("OK", (dialog, which) -> dialog.dismiss())
             .show();
     }
 }

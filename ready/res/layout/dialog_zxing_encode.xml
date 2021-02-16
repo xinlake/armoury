@@ -5,17 +5,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
-    tools:ignore="HardcodedText">
+    tools:ignore="HardcodedText, ContentDescription">
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/geo_address"
+        android:id="@+id/zxing_encode_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Enter IP address" />
+        android:gravity="center" />
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/geo_location"
+    <ImageView
+        android:id="@+id/zxing_encode_image"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center" />

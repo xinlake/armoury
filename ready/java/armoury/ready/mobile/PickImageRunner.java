@@ -1,4 +1,4 @@
-package xinlake.armoury.ready;
+package armoury.ready.mobile;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.EditText;
 
 import armoury.mobile.picker.ImagePickActivity;
+import armoury.ready.ActivityMain;
+import xinlake.armoury.ready.R;
 
 public class PickImageRunner implements View.OnClickListener {
     private final Activity activity;

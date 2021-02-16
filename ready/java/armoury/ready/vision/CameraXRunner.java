@@ -1,4 +1,4 @@
-package xinlake.armoury.ready;
+package armoury.ready.vision;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -10,7 +10,9 @@ import android.widget.RadioButton;
 
 import com.google.android.material.switchmaterial.SwitchMaterial;
 
+import armoury.ready.ActivityMain;
 import armoury.vision.CameraXActivity;
+import xinlake.armoury.ready.R;
 
 public class CameraXRunner implements View.OnClickListener {
     private final Activity activity;
@@ -41,8 +43,7 @@ public class CameraXRunner implements View.OnClickListener {
         new AlertDialog.Builder(activity)
             .setView(layout)
             .setTitle("Camera X")
-            .setNeutralButton("Run", clickRun)
-            .setNegativeButton("Close", (dialog, which) -> dialog.dismiss())
+            .setPositiveButton("Run", clickRun)
             .show();
     }
 }

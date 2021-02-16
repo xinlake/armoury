@@ -1,17 +1,19 @@
-package xinlake.armoury.ready;
+package armoury.ready.network;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import armoury.network.GeoLocation;
+import armoury.common.XinText;
+import xinlake.armoury.ready.R;
 
 public class GeoLocationRunner implements View.OnClickListener {
     private final Activity activity;
-    private final GeoLocation geoLocation = new GeoLocation();
+    private final armoury.network.GeoLocation geoLocation = new armoury.network.GeoLocation();
 
     public GeoLocationRunner(Activity activity) {
         this.activity = activity;
@@ -26,14 +28,19 @@ public class GeoLocationRunner implements View.OnClickListener {
         AlertDialog alertDialog = new AlertDialog.Builder(activity)
             .setView(layout)
             .setTitle("Geo location")
-            .setNeutralButton("Get", null)
-            .setNegativeButton("Close", (dialog, which) -> dialog.dismiss())
-            .create();
+            .setNeutralButton("Generate", null)
+            .setPositiveButton("Find", null)
+            .show();
 
-        alertDialog.show();
+        Button buttonNeutral = alertDialog.getButton(DialogInterface.BUTTON_NEUTRAL);
+        buttonNeutral.setOnClickListener(button -> {
+            String ip = XinText.generateIp();
+            editText.setText(ip);
+        });
 
-        alertDialog.getButton(DialogInterface.BUTTON_NEUTRAL).setOnClickListener(button -> {
+        alertDialog.getButton(DialogInterface.BUTTON_POSITIVE).setOnClickListener(button -> {
             button.setEnabled(false);
+            buttonNeutral.setEnabled(false);
             editText.setEnabled(false);
 
             final String address = editText.getText().toString();
@@ -45,6 +52,7 @@ public class GeoLocationRunner implements View.OnClickListener {
                     }
 
                     button.setEnabled(true);
+                    buttonNeutral.setEnabled(true);
                     editText.setEnabled(true);
                 });
             }, "geo-location").start();
