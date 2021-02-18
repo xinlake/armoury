@@ -56,14 +56,14 @@ public abstract class PermissionActivity extends Activity {
             }
 
             Listener listener = mListeners.remove(requestCode);
-            if (permissionsDenied.size() > 0) {
-                //permission denied by user
-                assert listener != null;
-                listener.onPermissionDenied(permissionsDenied.toArray(new String[0]));
-            } else {
-                //permission granted
-                assert listener != null;
-                listener.onPermissionGranted();
+            if (listener != null) {
+                if (permissionsDenied.size() > 0) {
+                    //permission denied by user
+                    listener.onPermissionDenied(permissionsDenied.toArray(new String[0]));
+                } else {
+                    //permission granted
+                    listener.onPermissionGranted();
+                }
             }
         }
     }

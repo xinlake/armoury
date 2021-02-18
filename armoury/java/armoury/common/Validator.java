@@ -17,7 +17,7 @@ public class Validator {
      * @return boolean email format validation
      */
     public static boolean isEmail(String email) {
-        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
+        return Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
 
     /**
