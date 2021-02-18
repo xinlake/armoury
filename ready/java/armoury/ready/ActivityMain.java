@@ -32,7 +32,8 @@ public class ActivityMain extends PermissionActivity {
 
     // permission
     private final View.OnClickListener clickPermission = view -> {
-        acquirePermissions(new String[]{Manifest.permission.CAMERA}, new Listener() {
+        String[] permissions = new String[]{Manifest.permission.CAMERA};
+        acquirePermissions(permissions, new Listener() {
             @Override
             public void onPermissionGranted() {
                 Toast.makeText(ActivityMain.this,
@@ -117,10 +118,10 @@ public class ActivityMain extends PermissionActivity {
         findViewById(R.id.main_acquire_permission).setOnClickListener(clickPermission);
         findViewById(R.id.main_pick_image).setOnClickListener(new PickImageRunner(this));
 
-        findViewById(R.id.main_get_wifi_address).setOnClickListener(new WifiRunner(this));
-        findViewById(R.id.main_find_geo_location).setOnClickListener(new GeoLocationRunner(this));
+        findViewById(R.id.main_wifi_address).setOnClickListener(new WifiRunner(this));
+        findViewById(R.id.main_geo_location).setOnClickListener(new GeoLocationRunner(this));
 
-        findViewById(R.id.main_scanner).setOnClickListener(new CameraXRunner(this));
+        findViewById(R.id.main_camerax).setOnClickListener(new CameraXRunner(this));
         findViewById(R.id.main_zxing_decode).setOnClickListener(clickZxingDecode);
         findViewById(R.id.main_zxing_encode).setOnClickListener(new ZxingEncodeRunner(this));
     }

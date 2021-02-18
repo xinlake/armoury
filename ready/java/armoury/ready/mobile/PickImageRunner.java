@@ -21,7 +21,7 @@ public class PickImageRunner implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         final View layout = View.inflate(activity, R.layout.dialog_pick_image, null);
-        final EditText editMaxPick = layout.findViewById(R.id.pick_number);
+        final EditText editMaxPick = layout.findViewById(R.id.pick_image_count);
 
         DialogInterface.OnClickListener clickRun = (dialog, which) -> {
             int maxPick = 0;

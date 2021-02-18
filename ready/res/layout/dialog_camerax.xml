@@ -26,14 +26,14 @@
         android:layout_height="wrap_content">
 
         <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/camerax_zxing"
+            android:id="@+id/camerax_analyzer_zxing"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
             android:text="ZXing" />
 
         <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/camerax_mlkit"
+            android:id="@+id/camerax_analyzer_mlkit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ML Kit" />

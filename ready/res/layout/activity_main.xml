@@ -38,13 +38,13 @@
         android:textStyle="bold" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/main_get_wifi_address"
+        android:id="@+id/main_wifi_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="get wifi address" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/main_find_geo_location"
+        android:id="@+id/main_geo_location"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="find geo location" />
@@ -59,10 +59,10 @@
         android:textStyle="bold" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/main_scanner"
+        android:id="@+id/main_camerax"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="open scanner" />
+        android:text="open camera scan" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/main_zxing_decode"

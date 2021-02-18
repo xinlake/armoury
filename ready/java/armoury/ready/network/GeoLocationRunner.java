@@ -9,11 +9,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import armoury.common.XinText;
+import armoury.network.GeoLocation;
 import xinlake.armoury.ready.R;
 
 public class GeoLocationRunner implements View.OnClickListener {
     private final Activity activity;
-    private final armoury.network.GeoLocation geoLocation = new armoury.network.GeoLocation();
+    private final GeoLocation geoLocation = new GeoLocation();
 
     public GeoLocationRunner(Activity activity) {
         this.activity = activity;
@@ -22,8 +23,8 @@ public class GeoLocationRunner implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         final View layout = View.inflate(activity, R.layout.dialog_geo_location, null);
-        final EditText editText = layout.findViewById(R.id.geo_address);
-        final TextView textView = layout.findViewById(R.id.geo_location);
+        final EditText editAddress = layout.findViewById(R.id.geo_address);
+        final TextView textResult = layout.findViewById(R.id.geo_result);
 
         AlertDialog alertDialog = new AlertDialog.Builder(activity)
             .setView(layout)
@@ -35,25 +36,25 @@ public class GeoLocationRunner implements View.OnClickListener {
         Button buttonNeutral = alertDialog.getButton(DialogInterface.BUTTON_NEUTRAL);
         buttonNeutral.setOnClickListener(button -> {
             String ip = XinText.generateIp();
-            editText.setText(ip);
+            editAddress.setText(ip);
         });
 
         alertDialog.getButton(DialogInterface.BUTTON_POSITIVE).setOnClickListener(button -> {
             button.setEnabled(false);
             buttonNeutral.setEnabled(false);
-            editText.setEnabled(false);
+            editAddress.setEnabled(false);
 
-            final String address = editText.getText().toString();
+            final String address = editAddress.getText().toString();
             new Thread(() -> {
                 final String location = geoLocation.fromWebsite(address);
                 activity.runOnUiThread(() -> {
                     if (location != null) {
-                        textView.setText(location);
+                        textResult.setText(location);
                     }
 
                     button.setEnabled(true);
                     buttonNeutral.setEnabled(true);
-                    editText.setEnabled(true);
+                    editAddress.setEnabled(true);
                 });
             }, "geo-location").start();
         });

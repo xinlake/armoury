@@ -26,7 +26,7 @@ public class CameraXRunner implements View.OnClickListener {
         final View layout = View.inflate(activity, R.layout.dialog_camerax, null);
         final EditText editPrefix = layout.findViewById(R.id.camerax_prefix);
         final SwitchMaterial switchFacing = layout.findViewById(R.id.camerax_facing);
-        final RadioButton radioZxing = layout.findViewById(R.id.camerax_zxing);
+        final RadioButton radioZxing = layout.findViewById(R.id.camerax_analyzer_zxing);
 
         DialogInterface.OnClickListener clickRun = (dialog, which) -> {
             int facing = switchFacing.isChecked() ? CameraXActivity.FACING_FONT : CameraXActivity.FACING_BACK;
@@ -42,7 +42,7 @@ public class CameraXRunner implements View.OnClickListener {
 
         new AlertDialog.Builder(activity)
             .setView(layout)
-            .setTitle("Camera X")
+            .setTitle("CameraX")
             .setPositiveButton("Run", clickRun)
             .show();
     }
